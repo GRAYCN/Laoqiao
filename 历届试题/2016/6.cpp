@@ -14,6 +14,35 @@ bool check(){
     else return false;
 }
 
+bool checkAdd(){
+    if (num[1]+num[2]==num[3]) {
+        return true;
+    }
+    else return false;
+}
+
+bool checkSub(){
+    if (num[4]-num[5]==num[6]) {
+        return true;
+    }
+    else return false;
+}
+
+bool checkMulti(){
+    if (num[7]*num[8]==num[9]) {
+        return true;
+    }
+    else return false;
+}
+
+bool checkDivide(){
+    if (num[10]/num[11]==num[12] && num[10]%num[11]==0) {
+        return true;
+    }
+    else return false;
+}
+
+
 void print(){
     for(int i=1;i<=12;i++){
         printf("%d ",num[i]);
@@ -25,9 +54,13 @@ int cnt=0;
 
 void dfs(int x){
     if(x==13){
-        if(check()){
+        if(checkDivide()){
             cnt++;
         }
+        return;
+    }
+    if ( (x==4 && !checkAdd()) || (x==7 && !checkSub()) ||
+        (x==10 && !checkMulti()) ) {
         return;
     }
     
